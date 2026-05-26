@@ -1,0 +1,45 @@
+name: Deploy retainiq
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: ghcr.io/wikolabs/retainiq
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/wikolabs/retainiq:latest
+
+      - name: Deploy to VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.WIKOLABS_VM_HOST }}
+          username: ${{ secrets.WIKOLABS_VM_USER }}
+          key: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
+          script: |
+            docker pull ghcr.io/wikolabs/retainiq:latest
+            docker stop retainiq 2>/dev/null || true
+            docker rm retainiq 2>/dev/null || true
+            docker run -d               --name retainiq               -p 3007:3000               --restart unless-stopped               ghcr.io/wikolabs/retainiq:latest
+            echo "Deployed retainiq on port 3007"
