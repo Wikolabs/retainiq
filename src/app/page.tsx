@@ -142,7 +142,7 @@ export default function RetainIQ() {
           <h2 className="text-3xl md:text-4xl font-bold text-amber-950 text-center mb-12" style={{ fontFamily: "var(--font-display)" }}>
             L&apos;impact financier est immédiat
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               { value: "75%", label: "du churn détecté à l'avance" },
               { value: "€42k", label: "de MRR sauvé en moyenne / mois" },
@@ -154,18 +154,6 @@ export default function RetainIQ() {
               </div>
             ))}
           </div>
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-8 text-center">
-            <blockquote className="text-xl font-medium text-amber-950 mb-5 leading-relaxed" style={{ fontFamily: "var(--font-display)" }}>
-              &ldquo;Notre churn mensuel est passé de 8% à 2.1% en 4 mois. RetainIQ a identifié des clients à risque qu&apos;on n&apos;aurait jamais vus — et les a réengagés avant qu&apos;ils partent.&rdquo;
-            </blockquote>
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-700">AP</div>
-              <div className="text-left">
-                <div className="font-semibold text-amber-950">Alexandre P.</div>
-                <div className="text-sm text-amber-500">CEO, SaaS B2B 200 clients</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -176,9 +164,14 @@ export default function RetainIQ() {
             Vos premiers signaux détectés aujourd&apos;hui
           </h2>
           <p className="text-amber-100 text-xl mb-10">Connexion en 1h. Premiers scores de churn sous 24h.</p>
-          <a href="mailto:hello@wikolabs.com?subject=RetainIQ — Demande de démo" className="inline-block bg-white text-amber-700 hover:bg-amber-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl">
-            Réduire mon churn →
-          </a>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-amber-700 hover:bg-amber-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl">
+              📅 Réserver un créneau →
+            </a>
+            <a href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20RetainIQ%20avec%20Wikolabs." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-amber-700 hover:bg-amber-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl" style={{ background: "#25d366", borderColor: "#25d366" }}>
+              💬 WhatsApp →
+            </a>
+          </div>
           <p className="text-amber-200 text-sm mt-5">14 jours gratuits · Sans carte bancaire · Intégration CRM incluse</p>
         </div>
       </section>
