@@ -1,4 +1,4 @@
-export default function RetainIQ() {
+﻿export default function RetainIQ() {
   return (
     <div className="min-h-screen" style={{ fontFamily: "var(--font-body)" }}>
 
@@ -182,7 +182,7 @@ export default function RetainIQ() {
           <span className="font-bold text-white text-xl" style={{ fontFamily: "var(--font-display)" }}>RetainIQ</span>
           <p className="text-sm">© 2025 RetainIQ — Un produit <a href="https://wikolabs.com" className="text-amber-400 hover:text-amber-200">Wikolabs</a></p>
           <div className="flex gap-6 text-sm">
-            <a href="mailto:hello@wikolabs.com" className="hover:text-amber-200 transition-colors">Contact</a>
+            <a href="mailto:team@wikolabs.com" className="hover:text-amber-200 transition-colors">Contact</a>
             <a href="https://wikolabs.com" className="hover:text-amber-200 transition-colors">Wikolabs</a>
           </div>
         </div>
