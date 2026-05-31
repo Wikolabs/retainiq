@@ -15,21 +15,9 @@ services:
       GROQ_API_KEY: ${GROQ_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     networks:
-      - retainiq-net
-
-  retainiq:
-    image: ghcr.io/wikolabs/retainiq:latest
-    container_name: retainiq
-    restart: unless-stopped
-    ports:
-      - "3007:3000"
-    environment:
-      BACKEND_URL: "http://retainiq-backend:8000"
-    depends_on:
-      - retainiq-backend
-    networks:
-      - retainiq-net
-
+  wkdemo_net:
+    name: wkdemo-net
+    external: true
 networks:
   retainiq-net:
     name: retainiq-net
